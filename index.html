@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test for Brocoders</title>
+  <link href="./css/main.css" rel="stylesheet">
+</head>
+<body>
+  <div id="main">
+    <table cellspacing="2" cellpadding="2">
+      <thead>
+        <tr><td></td></tr>
+      </thead>
+      <!--<tfoot>-->
+        <!--<tr><td class="add-row"></td></tr>-->
+      <!--</tfoot>-->
+      <tbody class="main-body">
+      </tbody>
+      <tr>
+        <td class="add-row" onclick="a.addTableRow()">+</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <button id="btnAddRow" onclick="a.addTableRow()">AddRow</button>
+  <button id="btnDelRow" onclick="a.delTableRow(event)">DelRow</button>
+  <button id="btnAddCol" onclick="a.addTableCol()">AddCol</button>
+  <button id="btnDelCol" onclick="a.delTableCol(event)">DelCol</button>
+
+  <script src="./js/app.js"></script>
+
+</body>
+</html>
