@@ -1,25 +1,49 @@
-/*red - #ae0309  hover - #c94c48
-  yellow #f3a602 hover - #f6c053
- */
-
-tfoot {
-  height: 50px;
-  width: 50px;
-}
-
-tbody.main-body {
-  display: block;
+table.main {
   border: 1px solid #729ea7;
-  border-collapse: separate;
   border-spacing: 2px;
-  margin-top: 2px;
 }
 
 td {
   width: 50px;
   height: 50px;
-  background-color: #48aae9;
   text-align: center;
+}
+
+div.center {
+  display: inline-block;
+}
+
+table.left-col,
+table.right-col {
+  display: inline-block;
+  border-bottom: solid 1px white;
+}
+
+table.left-col {
+  margin-right: -4px;
+}
+
+table.right-col {
+  margin-left: -4px;
+}
+
+table.head,
+table.foot {
+  border-left: solid 1px white;
+}
+
+table.left-col tr:last-child td,
+table.right-col tr:last-child td {
+  border-top: solid 2px white;
+}
+
+td.td-blue {
+  background-color: #48aae9;
+}
+
+td.add-col,
+td.add-row {
+  background-color: #f3a602;
 }
 
 td.add-col,
@@ -29,8 +53,6 @@ td.del-col {
   cursor: pointer;
   color: white;
   font-size: 20px;
-  font-weight: 700;
-  opacity: 1;
   transition-property: opacity;
   transition-duration: 600ms;
 }
@@ -42,14 +64,3 @@ td.del-col:hover {
   opacity: .6;
 }
 
-tr:first-child td.add-col,
-td.add-row {
-  background-color: #f3a602;
-}
-
-tr:not(:first-child) td.add-col,
-td.del-row,
-td.del-col {
-  background-color: white;
-  cursor: default;
-}
