@@ -4,9 +4,9 @@ const divApp = document.querySelector("div#app");
 
 class Table {
 
-  constructor(numRows, numCols) {
-    this.numRows = numRows;
-    this.numCols = numCols;
+  constructor(numRows=1, numCols=1) {
+    this.numRows = numRows > 1 ? numRows : 1;
+    this.numCols = numCols > 1 ? numCols : 1;
     this.allTds = [];
     this.blueEls = [];
     this.rightAddEl = '';
@@ -117,7 +117,7 @@ class Table {
       curr.addEventListener('mouseout', (e) => this.showDelElements(e.target, false));
     });
   }
-  
+
   evAddElement(element) {
     const cr = element.className.slice(-3);
     element.addEventListener('click', () => {
@@ -150,20 +150,18 @@ class Table {
   }
   
   tableInit() {
-    let table = "";
-    divApp.innerHTML = table;
     const cols = this.createLeftRightCols(this.numRows);
     const rows = this.createHeadFootRows(this.numCols);
-    
-    table = `<table class="left-col">${cols.colLeft}</table>
-             <div class="center">
-               <table class="head">${rows.rowHead}</table>
-               <table class="main">${this.createBlueTable()}</table>
-               <table class="foot">${rows.rowFoot}</table>
-             </div>
-             <table class="right-col">${cols.colRight}</table>
+  
+    const table = `<table class="left-col">${cols.colLeft}</table>
+           <div class="center">
+             <table class="head">${rows.rowHead}</table>
+             <table class="main">${this.createBlueTable()}</table>
+             <table class="foot">${rows.rowFoot}</table>
+           </div>
+           <table class="right-col">${cols.colRight}</table>
     `;
-    
+  
     divApp.innerHTML = table;
     this.allTds = divApp.querySelectorAll('td');
     this.selectorTds();
