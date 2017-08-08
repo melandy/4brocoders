@@ -36,23 +36,25 @@ class Table {
     const trEnd = "</tr>";
     let trHead = trBegin;
     let trFoot = trBegin;
+    let trBlue = trBegin;
     
     for (let i = 0; i < num; i++) {
       trFoot += (i === 0) ? "<td class = 'add-row'>+</td>" : "<td></td>";
       trHead += "<td class = 'del-col'></td>";
-  
+      trBlue += "<td class = 'td-blue'></td>"
     }
     trFoot += trEnd;
     trHead += trEnd;
+    trBlue += trEnd;
     
-    return {rowHead: trHead, rowFoot: trFoot}
+    return {rowHead: trHead, rowFoot: trFoot, colBlue: trBlue}
   }
   
   createLeftRightCols(num) {
     const trStr = "<tr><td></td></tr>";
     let trLeft = trStr;
     let trRight = trStr;
-    
+
     for (let i = 0; i < num; i++) {
       trLeft += "<tr><td class = 'del-row'></td></tr>";
       trRight += (i === 0) ? "<tr><td class = 'add-col'>+</td></tr>" : "<tr><td></td></tr>";
@@ -63,19 +65,10 @@ class Table {
     return {colLeft: trLeft, colRight: trRight}
   }
 
-  createBlueRow(num) {
-    let tr = "<tr>";
-    for (let i = 0; i < num; i++) {
-      tr += "<td class = 'td-blue'></td>"
-    }
-    tr += "</tr>";
-    return tr
-  }
-  
-  createBlueTable() {
+  createBlueTable(row) {
     let rows = "";
     for (let i = 0; i < this.numRows; i++) {
-      rows += `${this.createBlueRow(this.numCols)}`;
+      rows += `${row}`;
     }
     return rows
   }
@@ -156,7 +149,7 @@ class Table {
     const table = `<table class="left-col">${cols.colLeft}</table>
            <div class="center">
              <table class="head">${rows.rowHead}</table>
-             <table class="main">${this.createBlueTable()}</table>
+             <table class="main">${this.createBlueTable(rows.colBlue)}</table>
              <table class="foot">${rows.rowFoot}</table>
            </div>
            <table class="right-col">${cols.colRight}</table>
