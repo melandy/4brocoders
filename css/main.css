@@ -1,3 +1,8 @@
+div#app {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
 table.main {
   border: 1px solid #729ea7;
   border-spacing: 2px;
