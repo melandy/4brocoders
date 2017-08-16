@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <template id="tmpl">
+    <style>
+      .broc__component {
+        overflow-x: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        background-color: white;
+      }
+
+      .broc__div-delcol {
+        min-height: 56px;
+        margin: 0 0 -6px 0;
+      }
+
+      .broc__div-delrow {
+        min-width: 56px;
+        margin: 0 -2px 0 0;
+      }
+
+      .broc__div-center {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        flex-shrink: 0;
+      }
+
+      .broco__button-del.row {
+        border-right: inset 2px white;
+        margin: 3px 0 0 4px;
+        flex-shrink: 0;
+      }
+
+      .broco__button-del.col {
+        border-bottom: inset 2px white;
+        margin: 0 0 0 57px;
+      }
+
+      .broco__button-add.col {
+        margin-top: 3px;
+        margin-left: 2px;
+        flex-shrink: 0;
+      }
+
+      .broco__button-add.row {
+        margin-left: 57px;
+        margin-top: 2px;
+      }
+
+      .broco__table {
+        border: 1px solid #729ea7;
+        border-spacing: 2px;
+        bottom: 60px;
+        flex-shrink: 0;
+      }
+
+      .broco__table-elem {
+        margin: 0;
+        padding: 0;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        background-color: #48aae9;
+        flex-shrink: 0;
+      }
+
+      .broco__button {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        color: white;
+        border: none;
+        outline: none;
+        font-size: 25px;
+        font-weight: 500;
+        text-align: center;
+        transition: opacity 350ms ease-in-out;
+        position: relative;
+      }
+
+      .broco__button:hover {
+        cursor: pointer;
+        opacity: 0.6;
+      }
+
+      .broco__button-add {
+        background-color: #f3a602;
+      }
+
+      .broco__button-del {
+        background-color: #ae0309;
+      }
+
+      .broco__button-del-hidden {
+        display: none;
+      }
+    </style>
+
+    <div class="broc__component">
+      <div class="broc__div-delcol">
+        <button class="broco__button broco__button-del broco__button-del-hidden col">-</button>
+      </div>
+      <div class="broc__div-center">
+        <div class="broc__div-delrow">
+          <button class="broco__button broco__button-del broco__button-del-hidden row">-</button>
+        </div>
+        <table class="broco__table"></table>
+        <button class="broco__button broco__button-add col">+</button>
+      </div>
+      <div class="broc__div-end">
+        <button class="broco__button broco__button-add row">+</button>
+      </div>
+    </div>
+
+  </template>
+
+  <script type="text/javascript" src="broccomponent.js"></script>
+
+</body>
+</html>
