@@ -54,9 +54,9 @@ class BrocComponent extends HTMLElement {
 
   addCol() {
     return ()=> {
-      let tr = this.blueTbl.querySelectorAll("tr");
-      for (let i = 0; i < tr.length; i++) {
-        let td = tr[i].appendChild(document.createElement("td"));
+      let trs = this.blueTbl.querySelectorAll("tr");
+      for (let tr of trs) {
+        let td = tr.appendChild(document.createElement("td"));
         td.className = "broco__table-elem";
       }
       this.numCols++;
@@ -65,21 +65,21 @@ class BrocComponent extends HTMLElement {
 
   deleteCol() {
     return () => {
-      let tr = this.blueTbl.querySelectorAll("tr");
+      let trs = this.blueTbl.querySelectorAll("tr");
       if (this.numCols > 1) {
-        for (let i = 0; i < tr.length; i++) {
-          tr[i].lastChild.remove();
-        }
-        this.numCols--;
-        this.rootDiv.querySelector(".broco__button-del.col").classList.add("broco__button-del-hidden");
+      for (let tr of trs) {
+        tr.lastChild.remove();
+      }
+      this.numCols--;
+      this.rootDiv.querySelector(".broco__button-del.col").classList.add("broco__button-del-hidden");
       }
     }
   }
 
   addEvent(arr) {
-    for (let i = 0; i < arr.length; i++) {
-      let btn = this.rootDiv.querySelector(arr[i].btn);
-      btn[arr[i].event] = arr[i].cb;
+    for (let item of arr) {
+      let btn = this.rootDiv.querySelector(item.btn);
+      btn[item.event] = item.cb;
     }
   }
 
@@ -124,11 +124,11 @@ class BrocComponent extends HTMLElement {
       const btnDelRow = this.rootDiv.querySelector(".broco__button-del.row");
       const btnDelCol = this.rootDiv.querySelector(".broco__button-del.col");
 
-      const startPositionLeft = this.blueTbl.getBoundingClientRect().left + 4;
-      const startPositionTop = this.blueTbl.getBoundingClientRect().top + 4;
+      const startPositionLeft = this.blueTbl.getBoundingClientRect().left;
+      const startPositionTop = this.blueTbl.getBoundingClientRect().top;
 
-      const elemDelRow = parseInt((e.pageY - startPositionTop) / 52) * 52;
-      const elemDelCol = parseInt((e.pageX - startPositionLeft) / 52) * 52;
+      const elemDelRow = parseInt((e.pageY - startPositionTop - 4) / 52) * 52;
+      const elemDelCol = parseInt((e.pageX - startPositionLeft - 4) / 52) * 52;
 
       btnDelRow.style.transform = `translateY(${elemDelRow}px)`;
       btnDelCol.style.transform = `translateX(${elemDelCol}px)`;
