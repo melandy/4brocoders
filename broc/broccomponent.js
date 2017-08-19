@@ -4,8 +4,10 @@ class BrocComponent extends HTMLElement {
 
   constructor() {
     super();
-    this.numRows = +this.getAttribute("rows") || 1;
-    this.numCols = +this.getAttribute("cols") || 1;
+    const rows = +this.getAttribute("rows");
+    const cols = +this.getAttribute("cols");
+    this.numRows = rows && typeof rows === "number" ? rows : 1;
+    this.numCols = cols && typeof cols === "number" ? cols : 1;
 
     const shadow = this.createShadowRoot();
   
