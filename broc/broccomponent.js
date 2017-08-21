@@ -12,17 +12,17 @@ class BrocComponent extends HTMLElement {
     const shadow = this.createShadowRoot();
   
     const localDocument = document.currentScript.ownerDocument;
-    const tmpl = localDocument.getElementById("tmpl");
+    const tmpl = localDocument.getElementById("broc_tmpl");
     shadow.appendChild(tmpl.content.cloneNode(true));
   
     this.rootDiv = shadow.querySelector(".broc__component");
     this.blueTbl = shadow.querySelector(".broco__table");
   
-    this.deleteRowButton = this.rootDiv.querySelector(".broco__button-del.row");
-    this.deleteColumnButton = this.rootDiv.querySelector(".broco__button-del.col");
+    this.deleteRowButton = this.rootDiv.querySelector(".broco__button-delrow");
+    this.deleteColumnButton = this.rootDiv.querySelector(".broco__button-delcol");
 
-    this.addRowButton = this.rootDiv.querySelector(".broco__button-add.row");
-    this.addColumnButton = this.rootDiv.querySelector(".broco__button-add.col");
+    this.addRowButton = this.rootDiv.querySelector(".broco__button-addrow");
+    this.addColumnButton = this.rootDiv.querySelector(".broco__button-addcol");
   }
 
   createTable() {
@@ -140,8 +140,8 @@ class BrocComponent extends HTMLElement {
       const startPositionLeft = this.blueTbl.getBoundingClientRect().left;
       const startPositionTop = this.blueTbl.getBoundingClientRect().top;
 
-      const elemDelRow = parseInt((e.pageY - startPositionTop - 4) / 52) * 52;
-      const elemDelCol = parseInt((e.pageX - startPositionLeft - 4) / 52) * 52;
+      const elemDelRow = parseInt((e.pageY - startPositionTop - 4)  / 50) * 50;
+      const elemDelCol = parseInt((e.pageX - startPositionLeft - 4) / 50) * 50;
 
       this.deleteRowButton.style.transform = `translateY(${elemDelRow}px)`;
       this.deleteColumnButton.style.transform = `translateX(${elemDelCol}px)`;
