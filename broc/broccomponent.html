@@ -51,27 +51,19 @@
         border: 2px solid white;
       }
 
-      .broc__div-delcol {
-        min-height: 52px;
-        margin-left: 53px;
-      }
-
-      .broc__div-delrow {
-        min-width: 52px;
-        margin-top: 1px;
-      }
-
-      .broco__button-addcol {
-        margin-top: 1px;
-      }
-
-      .broco__button-addrow {
-        margin-left: 52px;
-      }
-
       .broco__button:hover {
         cursor: pointer;
         opacity: 0.6;
+      }
+
+      .broco__button-delcol,
+      .broco__button-addrow {
+        margin-left: 53px;
+      }
+
+      .broco__button-delrow,
+      .broco__button-addcol {
+        margin-top: 1px;
       }
 
       .broco__button-add {
@@ -83,24 +75,18 @@
       }
 
       .broco__button-del-hidden {
-        display: none;
+        visibility: hidden;
       }
     </style>
 
     <div class="broc__component">
-      <div class="broc__div-delcol">
-        <button class="broco__button broco__button-del broco__button-delcol broco__button-del-hidden">-</button>
-      </div>
+      <button class="broco__button broco__button-del broco__button-delcol broco__button-del-hidden">-</button>
       <div class="broc__div-center">
-        <div class="broc__div-delrow">
-          <button class="broco__button broco__button-del broco__button-delrow broco__button-del-hidden">-</button>
-        </div>
+        <button class="broco__button broco__button-del broco__button-delrow broco__button-del-hidden">-</button>
         <table class="broco__table"></table>
         <button class="broco__button broco__button-add broco__button-addcol">+</button>
       </div>
-      <div class="broc__div-end">
-        <button class="broco__button broco__button-add broco__button-addrow">+</button>
-      </div>
+      <button class="broco__button broco__button-add broco__button-addrow">+</button>
     </div>
 
   </template>

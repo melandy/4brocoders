@@ -33,7 +33,6 @@ class BrocComponent extends HTMLElement {
     }
     this.blueTbl.appendChild(tbody);
 
-    this.blueTbl.onmousemove = this.moveButton();
     this.blueTbl.onmouseenter = this.showDelButton();
     this.blueTbl.onmouseleave = this.hideDelButton();
   }
@@ -43,6 +42,7 @@ class BrocComponent extends HTMLElement {
     for (let i = 0; i < col; i++) {
       let td = tr.appendChild(document.createElement("td"));
       td.className = "broco__table-elem";
+      td.onmousemove = this.moveButton();
     }
     return tr
   }
@@ -74,6 +74,7 @@ class BrocComponent extends HTMLElement {
       for (let tr of trs) {
         let td = tr.appendChild(document.createElement("td"));
         td.className = "broco__table-elem";
+        td.onmousemove = this.moveButton();
       }
       this.numCols++;
     }
@@ -137,12 +138,11 @@ class BrocComponent extends HTMLElement {
     return (e) => {
       e.stopPropagation();
 
-      const startPositionLeft = this.blueTbl.getBoundingClientRect().left;
-      const startPositionTop = this.blueTbl.getBoundingClientRect().top;
-
-      const elemDelRow = parseInt((e.pageY - startPositionTop - 4)  / 50) * 50;
-      const elemDelCol = parseInt((e.pageX - startPositionLeft - 4) / 50) * 50;
-
+      const indexRow = e.target.parentNode.rowIndex;
+      const indexCol = e.target.cellIndex;
+      const elemDelRow = indexRow * 50;
+      const elemDelCol = indexCol * 50;
+      
       this.deleteRowButton.style.transform = `translateY(${elemDelRow}px)`;
       this.deleteColumnButton.style.transform = `translateX(${elemDelCol}px)`;
     }
