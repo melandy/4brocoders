@@ -42,7 +42,6 @@ class BrocComponent extends HTMLElement {
     for (let i = 0; i < col; i++) {
       let td = tr.appendChild(document.createElement("td"));
       td.className = "broco__table-elem";
-      td.onmousemove = this.moveButton();
     }
     return tr
   }
