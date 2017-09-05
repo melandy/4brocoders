@@ -1,0 +1,22 @@
+{
+  "name": "broc-component",
+  "version": "0.0.6",
+  "description": "Brocoders test",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melandy/4brocoders.git"
+  },
+  "author": "melandy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melandy/4brocoders/issues"
+  },
+  "homepage": "https://github.com/melandy/4brocoders#readme",
+  "devDependencies": {
+    "express": "^4.15.4"
+  }
+}
