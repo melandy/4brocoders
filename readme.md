@@ -11,4 +11,4 @@ Browser - http://localhost:3000
 
 This app uses Web components.
 
-Browsers supported Web components: Chrome, Opera 
+Browsers support to the Web components: Chrome, Opera 
